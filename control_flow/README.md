@@ -598,3 +598,70 @@ while attempt < 6:
 ``` 
 [guessing_game_user_story_6.py](guessing_game_user_story_6.py)
 
+## Task: Fizz Buzz
+
+Print incremented numbers to the screen but substitute multiples of 3 with 'Fizz', multiples of 5 with 'Buzz', and multiples of both with 'FizzBuzz'
+
+Core: 
+
+* Write a program that prints the numbers from 1 to 100. 
+* For multiples of three print "Fizz" instead of the number 
+* For the multiples of five print "Buzz" instead of the number 
+* For numbers which are multiples of both three and five print "FizzBuzz".
+
+Solution:
+
+```python
+# Initiating for loop from 1 to and including 100
+for num in range(1,101):
+  
+    # if num is a multiple of 3 and 5 
+    if num % 3 == 0 and num % 5 == 0:
+        print("FizzBuzz")
+    
+    # if num is a multiple of 3
+    elif num % 3 == 0:
+        print("Fizz")
+        
+    # if num is a multiple of 5
+    elif num % 5 == 0:
+        print("Buzz")
+        
+    else:
+        print(num)
+```
+[fizzbuzz.py](fizzbuzz.py)
+
+
+Improve the script so we can decide which numbers to substitute for "Fizz" and "Buzz" 
+Refactor using functions.
+
+Solution:
+
+```python
+# Defining fizz_buzz function
+def fizz_buzz(fizz_num, buzz_num):
+    # Initiating for loop from 1 to and including 100
+    for num in range(1, 101):
+
+        # if num is a multiple of fizz_num and buzz_num
+        if num % fizz_num == 0 and num % buzz_num == 0:
+            print("FizzBuzz")
+
+        # if num is a multiple of fizz_num
+        elif num % fizz_num == 0:
+            print("Fizz")
+
+        # if num is a multiple of buzz_num
+        elif num % buzz_num == 0:
+            print("Buzz")
+
+        else:
+            print(num)
+```
+[fizzbuzz.py](fizzbuzz.py)
+
+Acceptance Criteria 
+
+* All core task are done 
+* Core works with no error 
