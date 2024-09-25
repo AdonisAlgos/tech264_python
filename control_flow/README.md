@@ -350,7 +350,7 @@ while user_prompt:
     # ADD ELSE STATEMENT HERE 
     else:
         # TELL USER THE PROBLEM WITH THEIR INPUT 
-        print("Invalid input: Please enter a number.")
+        print("Invalid input: Please enter a number lower than 118.")
 
 print(f"Your age is {age}")
 ```
@@ -364,3 +364,237 @@ Solution:
 ```python
 int(age) <= 117:
 ```
+
+## Task: Magic number guessing game
+
+### Level 1 
+
+**User story 1:**
+* As a user, I want to be able to guess a number and know if i got it correct or not, so that I can know if I won or not. 
+
+```python
+# Define/assign number to a variable called magic_number
+magic_number = 10
+
+# Allow the user 5 guesses
+for attempt in range(1, 6):
+    # Ask user for input
+    guess = input("Please make a guess: ")
+
+    # Check if the user guess matches the magic_number
+    if int(guess) == magic_number:
+        # Let the user know if the response was correct or not
+        print("Congratulations! You've guessed the correct number!")
+        break
+        
+    else:
+        print("Guess incorrect. Please try again!")
+```
+[guessing_game_level_1.py](guessing_game_user_story_1.py)
+
+### Level 2 
+
+**User story 2:**
+
+* As a user, I want to be able to guess a number and know if I need to go higher or lower.
+
+```python
+# Define/assign number to a variable called magic_number
+magic_number = 10
+
+# Allow the user 5 guesses
+for attempt in range(1, 6):
+    # Ask user for input
+    guess = input("Please make a guess: ")
+
+    # Cast guess to be of Integer type
+    guess = int(guess)
+
+    # Check if the user guess matches the magic_number
+    if guess == magic_number:
+        # Let the user know if the response was correct or not
+        print("Congratulations! You've guessed the correct number!")
+        break
+
+    # Check if the user guess is higher than the magic_number
+    elif guess > magic_number:
+        print("Too high! Try a lower number!")
+        
+    # Check if the user guess is lower than the magic_number
+    elif guess < magic_number:
+        print("Too low! Try a higher number!")
+```
+[guessing_game_level_2.py](guessing_game_user_story_2.py)
+
+**User story 3:**
+* As a user, I don't want my guesses wasted if I enter something accidentally as my guess which are not digits. 
+
+```python
+# Define/assign number to a variable called magic_number
+magic_number = 10
+attempt = 1
+
+# Allow the user 5 guesses
+while attempt < 6:
+    # Ask user for input
+    guess = input("Please make a guess: ")
+    
+    # Check if the guess is not a number
+    if not guess.isdigit():
+        print("Invalid input: Please enter a number")
+        continue
+    
+    # Cast guess to be of Integer type
+    guess = int(guess)
+      
+    # Check if the user guess matches the magic_number
+    if guess == magic_number:
+        # Let the user know if the response was correct or not
+        print("Congratulations! You've guessed the correct number!")
+        break
+
+    # Check if the user guess is higher than the magic_number
+    elif guess > magic_number:
+        print("Too high! Try a lower number!")
+        
+    # Check if the user guess is lower than the magic_number
+    elif guess < magic_number:
+        print("Too low! Try a higher number!")
+    
+    # Increment attempt by 1
+    attempt += 1
+```
+[guessing_game_level_3.py](guessing_game_user_story_3.py)
+
+**User Story 4:**
+
+* As a user, after each guess, I would like to know how many guesses I have left. 
+
+```python
+# Define/assign number to a variable called magic_number
+magic_number = 10
+attempt = 1
+
+# Allow the user 5 guesses
+while attempt < 6:
+    # Ask user for input
+    guess = input("Please make a guess: ")
+    
+    # Check if the guess is not a number
+    if not guess.isdigit():
+        print("Invalid input: Please enter a number")
+        continue
+    
+    # Cast guess to be of Integer type
+    guess = int(guess)
+      
+    # Check if the user guess matches the magic_number
+    if guess == magic_number:
+        # Let the user know if the response was correct or not
+        print(f"Congratulations! You've guessed the correct number on attempt {attempt} out of 5!")
+        break
+
+    # Check if the user guess is higher than the magic_number
+    elif guess > magic_number:
+        print(f"Too high! Try a lower number! Attempt {attempt} out of 5.")
+        
+    # Check if the user guess is lower than the magic_number
+    elif guess < magic_number:
+        print(f"Too low! Try a higher number! Attempt {attempt} out of 5.")
+    
+    # Increment attempt by 1
+    attempt += 1
+```
+[guessing_game_user_story_4.py](guessing_game_user_story_4.py)
+
+### Level 3 
+
+**User Story 5**
+
+* As a user, I would like the magic to be randomly generated each time I play so it is more fun. 
+```python
+import random
+
+# Define/assign number to a variable called magic_number
+magic_number = random.randint(1, 100)
+attempt = 1
+
+# Allow the user 5 guesses
+while attempt < 6:
+    # Ask user for input
+    guess = input("Please make a guess: ")
+    
+    # Check if the guess is not a number
+    if not guess.isdigit():
+        print("Invalid input: Please enter a number")
+        continue
+    
+    # Cast guess to be of Integer type
+    guess = int(guess)
+      
+    # Check if the user guess matches the magic_number
+    if guess == magic_number:
+        # Let the user know if the response was correct or not
+        print(f"Congratulations! You've guessed the correct number on attempt {attempt} out of 5!")
+        break
+
+    # Check if the user guess is higher than the magic_number
+    elif guess > magic_number:
+        print(f"Too high! Try a lower number! Attempt {attempt} out of 5.")
+        
+    # Check if the user guess is lower than the magic_number
+    elif guess < magic_number:
+        print(f"Too low! Try a higher number! Attempt {attempt} out of 5.")
+    
+    # Increment attempt by 1
+    attempt += 1
+```
+[guessing_game_user_story_5.py](guessing_game_user_story_5.py)
+
+**User Story 6** 
+* As a user, I would like to know the magic number at the end of the game if I still haven't guessed correctly 
+and I've used up all my tries.
+
+```python
+import random
+
+# Define/assign number to a variable called magic_number
+magic_number = random.randint(1, 100)
+attempt = 1
+
+# Allow the user 5 guesses
+while attempt < 6:
+    # Ask user for input
+    guess = input("Please make a guess: ")
+    
+    # Check if the guess is not a number
+    if not guess.isdigit():
+        print("Invalid input: Please enter a number")
+        continue
+    
+    # Cast guess to be of Integer type
+    guess = int(guess)
+    
+    if guess != magic_number and attempt == 5:
+        print(f"Game over! The correct number was {magic_number}. Better luck next time!")
+        break
+        
+    # Check if the user guess matches the magic_number
+    if guess == magic_number:
+        # Let the user know if the response was correct or not
+        print(f"Congratulations! You've guessed the correct number on attempt {attempt} out of 5!")
+        break
+
+    # Check if the user guess is higher than the magic_number
+    elif guess > magic_number:
+        print(f"Too high! Try a lower number! Attempt {attempt} out of 5.")
+        
+    # Check if the user guess is lower than the magic_number
+    elif guess < magic_number:
+        print(f"Too low! Try a higher number! Attempt {attempt} out of 5.")
+    
+    # Increment attempt by 1
+    attempt += 1
+``` 
+[guessing_game_user_story_6.py](guessing_game_user_story_6.py)
+

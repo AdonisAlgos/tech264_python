@@ -13,6 +13,6 @@ while user_prompt:
     # ADD ELSE STATEMENT HERE
     else:
         # TELL USER THE PROBLEM WITH THEIR INPUT
-        print("Invalid input: Please enter a number.")
+        print("Invalid input: Please enter a number lower than 118.")
 
 print(f"Your age is {age}")
