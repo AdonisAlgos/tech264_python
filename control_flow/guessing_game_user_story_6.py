@@ -6,7 +6,7 @@ import random
 # Define/assign number to a variable called magic_number
 magic_number = random.randint(1, 100)
 attempt = 1
-
+print("Enter a number between and including 1 and 100!")
 # Allow the user 5 guesses
 while attempt < 6:
     # Ask user for input
@@ -14,7 +14,7 @@ while attempt < 6:
 
     # Check if the guess is not a number
     if not guess.isdigit():
-        print("Invalid input: Please enter a number")
+        print(f"Invalid input: Attempt {attempt} out of 5. Please enter a number")
         continue
 
     # Cast guess to be of Integer type

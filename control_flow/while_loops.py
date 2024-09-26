@@ -17,5 +17,7 @@ while x < 10:
     # If x is equal to 4 then break the loop
     if x == 4:
         break
+
     # Increment x by 1
     x += 1
+
