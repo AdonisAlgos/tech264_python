@@ -1,5 +1,7 @@
 # Learning JSON
 
+## Task: Research what is JSON
+
 What does it stand for?
 * JSON stands for JavaScript Object Notation.
 
@@ -42,4 +44,158 @@ What is the JSON syntax for:
 * Object: { "key1": value1, "key2": value2, ... }
 * Separating Data: Use commas between key/value pairs.
 * Array: [value1, value2, value3, ...]
+
+## Task: Convert a Python dictionary into a JSON-formatted string and a JSON file
+
+Encoding: Converts data into a specific format for efficient transmission or storage, often converting 
+characters into bytes (e.g., UTF-8 encoding for text).
+
+Serializing: Transforms complex data structures (like objects or arrays) 
+into a format that can be easily stored or transmitted (e.g., JSON, XML), 
+and later reconstructed back into the original form.
+
+Starting code:
+
+```python
+# create the dictionary
+servers_dict = {
+    "server1": {
+        "hostname": "web-server-1",
+        "ip_address": "192.168.1.1",
+        "role": "web",
+        "status": "active"
+    },
+    "server2": {
+        "hostname": "db-server-1",
+        "ip_address": "192.168.1.2",
+        "role": "database",
+        "status": "maintenance"
+    }
+}
+```
+
+Subtasks:
+
+* Convert this Python dictionary into a JSON-formatted string
+* Convert this Python dictionary to a JSON file
+* Write any other code necessary to test things converted correctly
+
+
+Solution:
+
+* Convert the Python dictionary into a JSON-formatted string via the `json.dumps()` function
+ (converts a dictionary into a JSON string.)
+* Convert the Python dictionary into a JSON file via the `json.dump()` function to write the dictionary to a JSON file.
+* Both actions are considered as **Serialisation**
+* Use the json library
+
+```python
+import json
+
+# Create the dictionary
+servers_dict = {
+    "server1": {
+        "hostname": "web-server-1",
+        "ip_address": "192.168.1.1",
+        "role": "web",
+        "status": "active"
+    },
+    "server2": {
+        "hostname": "db-server-1",
+        "ip_address": "192.168.1.2",
+        "role": "database",
+        "status": "maintenance"
+    }
+}
+
+# Convert the dictionary to a JSON-formatted string
+json_string = json.dumps(servers_dict, indent=4)
+
+# Print the JSON-formatted string to verify the conversion
+print("JSON formatted string:")
+print(json_string)
+
+# Convert the dictionary to a JSON file
+with open("servers.json", "w") as json_file:  # Open (or create) a file in write mode
+    json.dump(servers_dict, json_file, indent=4)  # Write the dictionary to the file in JSON format
+    print("\nJSON file 'servers.json' created successfully.")
+```
+[json_conversion.py](json_conversion.py)
+
+# Task: Convert JSON file to Python dictionary
+
+Starting code:
+
+```python
+# create the dictionary
+servers_dict = {
+    "server1": {
+        "hostname": "web-server-1",
+        "ip_address": "192.168.1.1",
+        "role": "web",
+        "status": "active"
+    },
+    "server2": {
+        "hostname": "db-server-1",
+        "ip_address": "192.168.1.2",
+        "role": "database",
+        "status": "maintenance"
+    }
+}
+```
+
+Subtasks:
+
+* Use 'with' to open the file created above
+* Parse contents the JSON file into a Python dictionary named "servers"
+* Print out the type of "servers"
+* Print out the dictionary record with the key "server1"
+* Print out the dictionary record with the key "server2"
+* Print all of the keys and values.
+
+Output should be:
+```
+Key and value: 'server1' = '{'hostname': 'web-server-1', 'ip_address': '192.168.1.1', 'role': 'web', 'status': 'active'}'
+Record key and sub value: 'hostname' = 'web-server-1'
+Record key and sub value: 'ip_address' = '192.168.1.1'
+Record key and sub value: 'role' = 'web'
+Record key and sub value: 'status' = 'active'
+Key and value: 'server2' = '{'hostname': 'db-server-1', 'ip_address': '192.168.1.2', 'role': 'database', 'status': 'maintenance'}'
+Record key and sub value: 'hostname' = 'db-server-1'
+Record key and sub value: 'ip_address' = '192.168.1.2'
+Record key and sub value: 'role' = 'database'
+Record key and sub value: 'status' = 'maintenance'
+```
+
+Solution:
+```python
+import json
+
+# Read the existing JSON file and convert it to a Python dictionary
+with open('servers.json', 'r') as json_file:
+    servers = json.load(json_file)
+
+# Loop through the main dictionary
+for server_key, server_info in servers.items():
+    # Print the key and the entire sub-dictionary as a string
+    print(f"Key and value: '{server_key}' = '{server_info}'")
+
+    # Loop through the sub-dictionary and print each key-value pair
+    for info_key, info_value in server_info.items():
+        print(f"Record key and sub value: '{info_key}' = '{info_value}'")
+```
+[parse_json_to_dict.py](parse_json_to_dict.py)
+
+Explanation:
+
+`open()` Opens a file and returns a file object. In our case, open('servers.json', 'r')
+opens the servers.json file in read mode ('r'), allowing us to read its contents.
+
+`with` Ensures that the file is automatically closed after its block of code is executed, 
+even if an error occurs. This prevents resource leaks.
+
+`json.load()` Takes a file object containing JSON data and parses it into a Python object (in this case, a dictionary).
+
+
+
 
