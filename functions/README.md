@@ -149,14 +149,14 @@ Requirements:
 
 Solution:
 ```python
-def division(num1: int = 2, num2: int = 5) -> float:
+def divide(num1: int = 2, num2: int = 5) -> float:
     return num1 / num2
 
-a = 4
-b = 6
+a: int = 4
+b: int = 6
 
-print(division(a, b))
-print(division())
+print(divide(a, b))
+print(divide())
 ```
 [function_examples.py](function_examples.py)
 ### Task 9: What are some good practices when it comes to functions?

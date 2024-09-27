@@ -16,8 +16,17 @@ servers_dict = {
     }
 }
 
+# Check the type of server_dict before conversion
+print(type(servers_dict))
+
+# Print the dictionary before conversion
+print(servers_dict)
+
 # Convert the dictionary to a JSON-formatted string
 json_string = json.dumps(servers_dict, indent=4)
+
+# Check the type of server_dict before conversion
+print(type(json_string))
 
 # Print the JSON-formatted string to verify the conversion
 print("JSON formatted string:")

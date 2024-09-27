@@ -4,6 +4,8 @@ import json
 with open('servers.json', 'r') as json_file:
     servers = json.load(json_file)
 
+print(servers)
+
 # Loop through the main dictionary
 for server_key, server_info in servers.items():
     # Print the key and the entire sub-dictionary as a string
