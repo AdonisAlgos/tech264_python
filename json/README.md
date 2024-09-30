@@ -196,6 +196,24 @@ even if an error occurs. This prevents resource leaks.
 
 `json.load()` Takes a file object containing JSON data and parses it into a Python object (in this case, a dictionary).
 
+## Task: YAML scripting
 
+Requirements
+
+* Create version of parse_json_to_dict.py but for parsing/converting YAML to a dictionary: [parse_yaml_to_dict.py](parse_yaml_to_dict.py)
+* Create version of validate_json_file.py but for checking a YAML file: [validate_yaml_file.py](validate_yaml_file.py)
+* Create a YAML to JSON file conversion script: [yaml2json.py](yaml2json.py)
+* Create a script that check if an entire folders contents is valid YAML: [check_files_valid_yaml.py](check_files_valid_yaml.py)
+
+
+Explanations:
+
+* **yaml.safe_load():** Safely parses a YAML string or file into a Python object, preventing execution of arbitrary code.
+* **yaml.dump():** Serializes a Python object into a YAML-formatted string or file.
+* **yaml_file.write():** Writes a string (usually YAML content) to an open file object.
+* **yaml.load():** Parses a YAML string or file into a Python object, but is less safe than yaml.safe_load() as it can execute arbitrary code.
+* **json.load():** Reads a JSON-formatted file and converts it into a Python object (like a dictionary or list).
+* **json.dumps():** Converts a Python object into a JSON-formatted string.
+* **json.dump():** Serializes a Python object into JSON format and writes it directly to a file.
 
 

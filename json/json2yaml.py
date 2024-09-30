@@ -3,7 +3,6 @@ import os
 import sys
 import yaml
 
-source_content = None
 # Checking there is a file name passed
 if len(sys.argv) > 1:
     # Opening the file
@@ -22,8 +21,11 @@ else:
 
 # 1. Convert the JSON to YAML - use yaml library
 # Open the JSON file and read its contents
-yaml_data = yaml.dump(source_content)
-print(yaml_data)
+with open(sys.argv[1], "r") as json_file:
+    dict_data = json.load(json_file)
+
+# Serialise python dictionary to YAML-formatted string
+yaml_data = yaml.dump(dict_data)
 
 # 2. Save the YAML into a new file with the name for it received as a argument
 # 2.1 Check the target file name was specified as an argument, if not, output the YAML to the screen instead
