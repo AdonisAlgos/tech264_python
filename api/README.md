@@ -79,3 +79,27 @@ Statelessness means that each HTTP request is independent, and the server does n
 Caching is the process of storing copies of frequently accessed resources or responses to speed up subsequent requests. 
 For example, when a resource is requested, the server might return a "Cache-Control" header to indicate how long the response 
 should be cached to reduce the server load.
+
+#### Why is Python use in DevOps:
+
+* Simple & Readable
+* Extensive library and support for DevOps tools
+* Community support
+
+#### Python is an interpreter
+Allows you to run code without having to compile it.
+
+#### DevOps phases
+* Development
+* Testing
+* Integration
+* Deployment
+* Monitoring
+* Feedback
+* Operation
+
+#### Why DevOps engineers use APIs?
+
+* Automate actions within Cloud Services.
+* Retrieve data from other services or systems.
+* Manage/Interact with DevOps tools.
